@@ -1,12 +1,7 @@
 package com.motoll.one.data;
 
-import android.annotation.SuppressLint;
-
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.xuexiang.xutil.data.DateUtils;
-
-import java.text.SimpleDateFormat;
 
 @DatabaseTable(tableName = "bill")
 public class Bill {
@@ -20,46 +15,22 @@ public class Bill {
     private String sex;
     @DatabaseField(columnName = "price")
     private double price;
-    @DatabaseField(columnName = "date")
-    private String date;
-    @DatabaseField(columnName = "year")
-    private String year;
-    @DatabaseField(columnName = "year_month")
-    private String year_month;
     @DatabaseField(columnName = "time")
     private long time;
     public Bill() {
     }
 
-    public Bill(long id, String type, String name, String sex, double price, String date, String year, String year_month) {
+    public Bill(long id, String type, String name, String sex, double price, long time) {
         Id = id;
         this.type = type;
         this.name = name;
         this.sex = sex;
         this.price = price;
-        this.date = date;
-        this.year = year;
-        this.year_month = year_month;
+        this.time = time;
     }
 
     public long getTime() {
         return time;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getYear_month() {
-        return year_month;
-    }
-
-    public void setYear_month(String year_month) {
-        this.year_month = year_month;
     }
 
     public String getSex() {
@@ -100,15 +71,5 @@ public class Bill {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    @SuppressLint("SimpleDateFormat")
-    public void setDate(String date) {
-        time=DateUtils.string2Millis(date,new SimpleDateFormat("yyyy-MM-dd"));
-        this.date = date;
     }
 }

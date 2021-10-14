@@ -1,4 +1,4 @@
-package com.motoll.one.common;
+package com.motoll.one;
 
 import android.app.Activity;
 import android.app.Application;
@@ -12,7 +12,6 @@ import com.motoll.one.data.db.BillDataBase;
 import com.xuexiang.xormlite.BillDataBaseRepository;
 import com.xuexiang.xormlite.annotation.DataBase;
 import com.xuexiang.xormlite.db.DBService;
-import com.xuexiang.xutil.XUtil;
 
 import java.util.Stack;
 
@@ -33,7 +32,6 @@ public class MyApplication extends Application implements Application.ActivityLi
 
     public void onCreate() {
         super.onCreate();
-        XUtil.init(this);
         registerActivityLifecycleCallbacks(this);
         BillDataBaseRepository.getInstance()
                 .setIDatabase(new BillDataBase())  //设置内部存储的数据库实现接口

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_marginBottom="15dp"
+    android:orientation="vertical"
+    android:src="@drawable/tab_ic_add_nor">
+
+</androidx.appcompat.widget.AppCompatImageView>
