@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:width="13dp"
+                android:height="7dp"
+                android:gravity="bottom|center_horizontal"
+                android:drawable="@drawable/ic_arrowtop_selector"/>
+        </layer-list>
+    </item>
+</selector>

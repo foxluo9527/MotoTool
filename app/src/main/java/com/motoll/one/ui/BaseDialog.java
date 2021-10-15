@@ -1,4 +1,4 @@
-package com.motoll.one.common;
+package com.motoll.one.ui;
 
 import android.app.Activity;
 import android.view.Display;
@@ -13,18 +13,19 @@ public abstract class BaseDialog {
     private View view;
     private AlertDialog dialog;
     private Activity activity;
-    abstract int initLayoutId();
+
+    public abstract int initLayoutId();
 
     /**
      * @return 弹窗占屏幕宽度百分比
      */
-    abstract float initWidthPercent();
+    public abstract float initWidthPercent();
 
-    abstract void initView(View view);
+    public abstract void initView(View view);
 
-    abstract void initData();
+    public abstract void initData();
 
-    abstract void initListener();
+    public abstract void initListener();
 
     public BaseDialog(Activity context) {
         activity=context;
@@ -38,6 +39,7 @@ public abstract class BaseDialog {
         Display d = m.getDefaultDisplay(); // 获取屏幕宽、高
         WindowManager.LayoutParams p = dialogWindow.getAttributes();
         p.width = (int) (d.getWidth() * initWidthPercent());
+        p.height = d.getHeight();
         p.gravity = Gravity.CENTER;
         dialogWindow.setAttributes(p);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);

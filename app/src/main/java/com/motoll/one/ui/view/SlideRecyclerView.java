@@ -1,4 +1,4 @@
-package com.motoll.one.common;
+package com.motoll.one.ui.view;
 
 import android.content.Context;
 import android.graphics.Rect;

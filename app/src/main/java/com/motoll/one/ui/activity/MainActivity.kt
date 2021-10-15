@@ -7,14 +7,14 @@ import com.jpeng.jptabbar.anno.NorIcons
 import com.jpeng.jptabbar.anno.SeleIcons
 import com.jpeng.jptabbar.anno.Titles
 import com.motoll.one.R
-import com.motoll.one.adapter.TabPageAdapter
+import com.motoll.one.ui.adapter.TabPageAdapter
 import com.motoll.one.common.CommonUtils
 import com.motoll.one.ui.BaseActivity
+import com.motoll.one.ui.dialog.AddBillDialog
 import com.motoll.one.ui.fragment.BagFragment
 import com.motoll.one.ui.fragment.HomeFragment
 import com.motoll.one.ui.fragment.MineFragment
 import com.motoll.one.ui.fragment.StatisFragment
-import com.xuexiang.xutil.tip.ToastUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -61,7 +61,7 @@ class MainActivity : BaseActivity() {
         view_pager.adapter=tabPageAdapter
         tabbar.setContainer(view_pager)
         tabbar.middleView.setOnClickListener{
-            ToastUtils.toast("中间点击")
+            AddBillDialog(this).show()
         }
         tabbar.setGradientEnable(false)
         tabbar.setPageAnimateEnable(false)

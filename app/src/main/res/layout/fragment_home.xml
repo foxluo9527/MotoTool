@@ -4,14 +4,174 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="首页"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="18dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#D4DD5E"
+        android:textSize="9sp"
+        android:text="xx用户名称的"
+        android:layout_marginBottom="11dp"
+        android:layout_marginStart="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_account_name"/>
+    <TextView
+        android:id="@+id/tv_account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#D4DD5E"
+        android:textSize="18sp"
+        android:text="@string/app_name"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_banner"/>
+    <ImageView
+        android:id="@+id/iv_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dkweiwrfe_card"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@id/iv_avatar"
+        android:layout_marginHorizontal="7dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_out_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥ 1081.00"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+        app:layout_constraintEnd_toEndOf="@id/iv_banner"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="@id/iv_banner"
+        app:layout_constraintTop_toTopOf="@id/iv_banner"
+        app:layout_constraintVertical_bias="0.48000002" />
+
+    <TextView
+        android:id="@+id/tv_bill_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本月账单"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_out_money"
+        app:layout_constraintStart_toStartOf="@id/tv_out_money"
+        app:layout_constraintTop_toTopOf="@id/iv_banner"
+        app:layout_constraintVertical_bias="0.709" />
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:gravity="center_vertical"
+        android:text="2021年3月"
+        android:paddingStart="6dp"
+        android:paddingEnd="18dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintEnd_toEndOf="@id/iv_banner"
+        app:layout_constraintTop_toTopOf="@id/tv_bill_out"
+        app:layout_constraintBottom_toBottomOf="@id/tv_bill_out"
+        android:background="@drawable/bg_bill_year"/>
+    <ImageView
+        android:id="@+id/iv_date_down"
+        android:layout_width="16dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:paddingVertical="2.5dp"
+        android:src="@drawable/ic_arrowdown_white"
+        app:layout_constraintEnd_toEndOf="@id/tv_date"
+        app:layout_constraintBottom_toBottomOf="@id/tv_date"/>
+    <ImageView
+        android:id="@+id/iv_date_up"
+        android:layout_width="16dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="5dp"
+        android:adjustViewBounds="true"
+        android:paddingVertical="2.5dp"
+        android:src="@drawable/ic_arrowtop_white"
+        app:layout_constraintEnd_toEndOf="@id/tv_date"
+        app:layout_constraintTop_toTopOf="@id/tv_date"/>
+
+    <TextView
+        android:id="@+id/tv_in_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本月收入 0.00"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+        app:layout_constraintStart_toStartOf="@id/tv_out_money"
+        app:layout_constraintTop_toBottomOf="@id/tv_out_money"
+        app:layout_constraintVertical_bias="0.397" />
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/tv_in_money"
+        app:layout_constraintEnd_toEndOf="@id/iv_banner"
+        android:layout_marginEnd="32dp"
+        android:textSize="10sp"
+        android:textColor="@color/white"
+        android:text="剩余预算: --\n本月结算: --"/>
+
+    <CheckedTextView
+        android:id="@+id/ctv_bill_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_bill_type_selector"
+        android:checked="true"
+        android:paddingBottom="9dp"
+        android:text="全部"
+        android:layout_marginStart="14dp"
+        android:textColor="@drawable/color_tv_bill_type"
+        app:layout_constraintStart_toStartOf="@+id/iv_banner"
+        app:layout_constraintTop_toBottomOf="@id/iv_banner" />
+    <CheckedTextView
+        android:id="@+id/ctv_bill_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="9dp"
+        android:background="@drawable/bg_bill_type_selector"
+        android:textColor="@drawable/color_tv_bill_type"
+        android:text="支出"
+        app:layout_constraintStart_toEndOf="@id/ctv_bill_all"
+        app:layout_constraintTop_toBottomOf="@id/iv_banner"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="5dp"
+        android:checked="false"/>
+    <CheckedTextView
+        android:id="@+id/ctv_bill_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="9dp"
+        android:background="@drawable/bg_bill_type_selector"
+        android:textColor="@drawable/color_tv_bill_type"
+        android:text="收入"
+        app:layout_constraintStart_toEndOf="@id/ctv_bill_out"
+        app:layout_constraintTop_toBottomOf="@id/iv_banner"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="5dp"
+        android:checked="false"/>
+    <com.motoll.one.ui.view.pinned.PinnedHeaderRecyclerView
+        android:id="@+id/ph_rv_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ctv_bill_all"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
