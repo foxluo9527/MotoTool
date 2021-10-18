@@ -1,5 +1,6 @@
 package com.motoll.one.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.Display;
 import android.view.Gravity;
@@ -9,10 +10,12 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.motoll.one.R;
+
 public abstract class BaseDialog {
     private View view;
     private AlertDialog dialog;
-    private Activity activity;
+    public Activity activity;
 
     public abstract int initLayoutId();
 
@@ -27,11 +30,12 @@ public abstract class BaseDialog {
 
     public abstract void initListener();
 
+    @SuppressLint("RestrictedApi")
     public BaseDialog(Activity context) {
         activity=context;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         view = View.inflate(context, initLayoutId(), null);
-        builder.setView(view);
+        builder.setView(view,0,0,0,0);
         builder.setCancelable(false);
         dialog = builder.show();
         Window dialogWindow = dialog.getWindow();
@@ -39,9 +43,9 @@ public abstract class BaseDialog {
         Display d = m.getDefaultDisplay(); // 获取屏幕宽、高
         WindowManager.LayoutParams p = dialogWindow.getAttributes();
         p.width = (int) (d.getWidth() * initWidthPercent());
-        p.height = d.getHeight();
         p.gravity = Gravity.CENTER;
         dialogWindow.setAttributes(p);
+        dialogWindow.setWindowAnimations(R.style.windowAnim);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         initView(view);
         initData();

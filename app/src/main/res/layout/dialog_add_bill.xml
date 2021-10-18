@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_add_bill">
-    <androidx.appcompat.widget.LinearLayoutCompat
+
+    <LinearLayout
         android:id="@+id/tab_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -20,6 +21,7 @@
             android:padding="13dp"
             android:layout_marginHorizontal="8dp"/>
         <CheckedTextView
+            android:id="@+id/ctv_bill_out"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@drawable/bg_tab_bill_selector"
@@ -30,9 +32,11 @@
             android:gravity="center"
             android:layout_weight="1"/>
         <CheckedTextView
+            android:id="@+id/ctv_bill_in"
             android:layout_width="0dp"
             android:gravity="center"
             android:text="收入"
+            android:background="@drawable/bg_tab_bill_selector"
             android:textAlignment="gravity"
             android:layout_height="match_parent"
             android:textColor="@drawable/color_tab_bill_selector"
@@ -41,148 +45,143 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginHorizontal="8dp"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
-    <View
-        android:id="@+id/bg_bill_type"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:elevation="0.5dp"
-        android:background="@drawable/bg_add_bill_type"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_top"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
-    <View
-        android:id="@+id/bg_bill_keyboard"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:elevation="1dp"
-        android:background="@drawable/bg_add_bill_keyboard"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bg_bill_type"
-        android:layout_marginTop="250dp"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:elevation="1dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@id/bg_bill_type"
-        app:layout_constraintBottom_toTopOf="@id/bg_bill_keyboard">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_below="@id/tab_top"
+        android:background="@drawable/bg_add_bill_type"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingHorizontal="8dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
             <CheckedTextView
+                android:id="@+id/ctv_coat"
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1"
-                android:text="上衣"
+                android:background="@drawable/bg_add_coat_selector"
                 android:checked="true"
-                android:paddingBottom="2.5dp"
-                android:textAlignment="gravity"
                 android:gravity="center_horizontal|bottom"
-                android:textColor="@drawable/color_tv_add_bill_type"
-                android:background="@drawable/bg_add_coat_selector"/>
+                android:paddingBottom="2.5dp"
+                android:text="上衣"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
             <CheckedTextView
+                android:id="@+id/ctv_helmet"
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1"
+                android:background="@drawable/bg_add_helmet_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
                 android:text="头盔"
-                android:paddingBottom="2.5dp"
                 android:textAlignment="gravity"
-                android:gravity="center_horizontal|bottom"
-                android:textColor="@drawable/color_tv_add_bill_type"
-                android:background="@drawable/bg_add_helmet_selector"/>
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
             <CheckedTextView
+                android:id="@+id/ctv_gloves"
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1"
+                android:background="@drawable/bg_add_gloves_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
                 android:text="手套"
-                android:paddingBottom="2.5dp"
                 android:textAlignment="gravity"
-                android:gravity="center_horizontal|bottom"
-                android:textColor="@drawable/color_tv_add_bill_type"
-                android:background="@drawable/bg_add_gloves_selector"/>
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
             <CheckedTextView
+                android:id="@+id/ctv_pants"
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1"
-                android:text="裤子"
-                android:paddingBottom="2.5dp"
-                android:textAlignment="gravity"
+                android:background="@drawable/bg_add_pants_selector"
                 android:gravity="center_horizontal|bottom"
-                android:textColor="@drawable/color_tv_add_bill_type"
-                android:background="@drawable/bg_add_pants_selector"/>
+                android:paddingBottom="2.5dp"
+                android:text="裤子"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:paddingHorizontal="8dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
             <CheckedTextView
+                android:id="@+id/ctv_other"
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1"
+                android:background="@drawable/bg_add_other_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
                 android:text="其他"
-                android:paddingBottom="2.5dp"
                 android:textAlignment="gravity"
-                android:gravity="center_horizontal|bottom"
-                android:textColor="@drawable/color_tv_add_bill_type"
-                android:background="@drawable/bg_add_other_selector"/>
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
             <CheckedTextView
+                android:id="@+id/ctv_moto"
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1"
-                android:text="摩托车"
-                android:paddingBottom="2.5dp"
-                android:textAlignment="gravity"
+                android:background="@drawable/bg_add_motorcyle_selector"
                 android:gravity="center_horizontal|bottom"
-                android:textColor="@drawable/color_tv_add_bill_type"
-                android:background="@drawable/bg_add_motorcyle_selector"/>
+                android:paddingBottom="2.5dp"
+                android:text="摩托车"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="88dp"
                 android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>
-    <ImageView
-        android:layout_width="14dp"
-        android:layout_height="7dp"
-        android:src="@drawable/ic_arrowtop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bg_bill_keyboard"
-        android:elevation="1.5dp"
-        android:layout_marginTop="14dp"/>
+
     <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:elevation="1.5dp"
-        android:background="#D5DE5D"
-        android:paddingHorizontal="10dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toTopOf="@id/bg_bill_keyboard"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="324dp"
+        android:background="@color/white"
         android:orientation="vertical">
-        <LinearLayout
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_add_bill_keyboard"
+            android:paddingVertical="10.5dp"
+            android:src="@drawable/ic_arrowtop" />
+        <LinearLayout
+            android:background="#D5DE5D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:paddingBottom="3dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
+
             <ImageView
+                android:id="@+id/key_account"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
@@ -196,18 +195,21 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/tv_beizhu"
                     android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textColor="#7E7E7E"
                     android:textSize="11sp"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:text="备注"/>
                 <EditText
+                    android:id="@+id/et_input"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:paddingHorizontal="15dp"
                     android:maxLines="1"
+                    android:text="0"
                     android:singleLine="true"
                     android:textColor="@color/black"
                     android:hint="Master card(USD)"
@@ -216,139 +218,168 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:background="#D5DE5D"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingVertical="3dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/key_user"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/btn_member"/>
             <ImageView
+                android:id="@+id/key_time"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/btn_today"/>
             <ImageView
+                android:id="@+id/key_del"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/btn_delete"/>
             <ImageView
+                android:id="@+id/key_ok"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/btn_ok"/>
         </LinearLayout>
         <LinearLayout
+            android:background="#D5DE5D"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingVertical="3dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/key_mul"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/key_multe"/>
+                android:src="@drawable/key_mul"/>
             <ImageView
+                android:id="@+id/key1"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key1"/>
             <ImageView
+                android:id="@+id/key2"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key2"/>
             <ImageView
+                android:id="@+id/key3"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key3"/>
         </LinearLayout>
         <LinearLayout
+            android:background="#D5DE5D"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingVertical="3dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/key_div"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/key_clip"/>
+                android:src="@drawable/key_div"/>
             <ImageView
+                android:id="@+id/key4"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key4"/>
             <ImageView
+                android:id="@+id/key5"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key5"/>
             <ImageView
+                android:id="@+id/key6"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key6"/>
         </LinearLayout>
         <LinearLayout
+            android:background="#D5DE5D"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingVertical="3dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/key_sub"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key_sub"/>
             <ImageView
+                android:id="@+id/key7"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key7"/>
             <ImageView
+                android:id="@+id/key8"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key8"/>
             <ImageView
+                android:id="@+id/key9"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
                 android:src="@drawable/key9"/>
         </LinearLayout>
         <LinearLayout
+            android:background="#D5DE5D"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="13dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/key_plus"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/key_plus"/>
+                android:src="@drawable/key_plus" />
+
             <ImageView
+                android:id="@+id/key_point"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/key_point"/>
+                android:src="@drawable/key_point" />
+
             <ImageView
+                android:id="@+id/key0"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/key0"/>
+                android:src="@drawable/key0" />
+
             <ImageView
+                android:id="@+id/key_equal"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/btn_equal"/>
+                android:src="@drawable/btn_equal" />
         </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

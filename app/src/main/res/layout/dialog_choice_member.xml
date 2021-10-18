@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/bg_add_bill_type"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="21dp"
+            android:background="#E3EB7A" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:text="编辑成员"
+            android:textColor="#333333" />
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="6dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/exit_green" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_info_member"
+        android:layout_below="@id/ll_top"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="10dp"
+        tools:listitem="@layout/item_bill_member"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_below="@id/rv_info_member"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_input_member"
+        android:hint="请输入购买成员"
+        android:maxLines="1"
+        android:paddingHorizontal="17dp"
+        android:singleLine="true"
+        android:textColor="#8E8E8E"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_below="@id/et_input"
+        android:layout_centerHorizontal="true"
+        android:layout_width="142dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_btn_ok"
+        android:gravity="center"
+        android:text="添加"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+</RelativeLayout>

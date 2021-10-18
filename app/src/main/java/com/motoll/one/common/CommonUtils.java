@@ -42,6 +42,7 @@ public class CommonUtils {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+    
     // 将File 转化为 content://URI
     public static Uri getFileProvider(Context context, File file) {
         // ‘authority’要与`AndroidManifest.xml`中`provider`配置的`authorities`一致，假设你的应用包名为com.example.app
@@ -77,7 +78,67 @@ public class CommonUtils {
             }
         }
     }
+    public static boolean isInPutInt(String content) {
+        if (content.length()==0)
+            return false;
+        char lastChar=content.charAt(content.length()-1);
+        boolean inPutInt = false;
+        if (lastChar == '.') {
+            return false;
+        } else if (!(lastChar <= '9' && lastChar >= '0')) {
+            return true;
+        }
+        //找到式中最后一个小数点
+        int startIndex = content.lastIndexOf(".");
+        //如果不是-1式中有小数点
+        if (startIndex != -1) {
+            char[] chars = new char[content.length() - startIndex - 1];
+            content.getChars(startIndex + 1, content.length(), chars, 0);
+            for (int i = 0; i < chars.length; i++) {
+                if (!(chars[i] <= '9' && chars[i] >= '0')) {
+                    inPutInt = true;
+                    break;
+                }
+            }
+            return inPutInt;
+        }
+        //Toast.makeText(getApplicationContext(),"没有小数点:",Toast.LENGTH_SHORT).show();
+        return true;
+    }
+    public static double equal(String content) {
+        // 找到字符串中最后一个左括号
+        int startIndex = content.lastIndexOf("(");
+        // 如果不是-1,标识这个等式中有括号,继续找与之对应的右括号
+        if (startIndex != -1) {
+            // 从左括号的位置开始找,找到第一个右括号,这对括号里面一定没有括号,所以就可以交给写好的equal(Stringcontent)方法算出结果！
+            int endIndex = content.indexOf(")", startIndex);
+            double d = equal(content.substring(startIndex + 1, endIndex));
+            return equal(content.substring(0, startIndex) //
+                    + d + content.substring(endIndex + 1));
+        }
 
+        int index = content.indexOf("+");
+        if (index != -1) {
+            return add(equal(content.substring(0, index))
+                    , equal(content.substring(index + 1)));
+        }
+        // 这里<---
+        index = content.lastIndexOf("-");
+        if (index != -1) {
+            return sub(equal(content.substring(0, index)), equal(content.substring(index + 1)));
+        }
+        // 这里<---
+        index = content.indexOf("*");
+        if (index != -1) {
+            return mul(equal(content.substring(0, index)), equal(content.substring(index + 1)));
+        }
+        // 这里<---
+        index = content.lastIndexOf("/");
+        if (index != -1) {
+            return div(equal(content.substring(0, index)), equal(content.substring(index + 1)));
+        }
+        return Double.parseDouble(content);
+    }
     private static final int DEF_DIV_SCALE = 10;
 
     //精确的加法算法

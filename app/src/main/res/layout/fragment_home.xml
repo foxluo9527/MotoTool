@@ -12,7 +12,7 @@
         android:src="@drawable/ic_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="27dp"
+
         android:layout_marginEnd="18dp"/>
     <TextView
         android:layout_width="wrap_content"
@@ -20,10 +20,9 @@
         android:textColor="#D4DD5E"
         android:textSize="9sp"
         android:text="xx用户名称的"
-        android:layout_marginBottom="11dp"
         android:layout_marginStart="22dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_account_name"/>
+        app:layout_constraintTop_toTopOf="@+id/iv_avatar"/>
     <TextView
         android:id="@+id/tv_account_name"
         android:layout_width="wrap_content"

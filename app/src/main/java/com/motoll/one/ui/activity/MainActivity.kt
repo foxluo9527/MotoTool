@@ -1,6 +1,8 @@
 package com.motoll.one.ui.activity
 
 import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 import com.jpeng.jptabbar.OnTabSelectListener
 import com.jpeng.jptabbar.anno.NorIcons
@@ -9,12 +11,14 @@ import com.jpeng.jptabbar.anno.Titles
 import com.motoll.one.R
 import com.motoll.one.ui.adapter.TabPageAdapter
 import com.motoll.one.common.CommonUtils
+import com.motoll.one.common.StatusBarUtil
 import com.motoll.one.ui.BaseActivity
 import com.motoll.one.ui.dialog.AddBillDialog
 import com.motoll.one.ui.fragment.BagFragment
 import com.motoll.one.ui.fragment.HomeFragment
 import com.motoll.one.ui.fragment.MineFragment
 import com.motoll.one.ui.fragment.StatisFragment
+import com.xuexiang.xui.utils.StatusBarUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -49,6 +53,9 @@ class MainActivity : BaseActivity() {
 
     override fun initData() {
         setStatusBarColor(R.color.white)
+        val layoutParams=view_pager.layoutParams as FrameLayout.LayoutParams
+        layoutParams.topMargin=CommonUtils.dipToPx(this, StatusBarUtils.getStatusBarHeight(this)*1.0f)
+        view_pager.layoutParams=layoutParams
         setBarTextColorIsDark(true)
         val params = tabbar.middleView.layoutParams as FrameLayout.LayoutParams
         params.bottomMargin = CommonUtils.dipToPx(this, 11f)
