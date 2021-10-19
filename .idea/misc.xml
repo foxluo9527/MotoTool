@@ -8,6 +8,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_bill_keybord.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_bill_type.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_bill_type_selector.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_cash_selector.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_coat_selector.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_gloves_selector.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_add_helmet_selector.xml" value="0.27239583333333334" />
@@ -17,18 +18,24 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_bill_type_selector.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_bill_year.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_btn_ok.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_card_item.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_input_bill.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_input_member.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_member.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_tab_bill_selector.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/bg_tv_default.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/color_tab_bill_selector.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/color_text_press_selector.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/color_tv_add_bill_type.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/color_tv_bill_type.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/ic_coat_d.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/drawable/ic_launcher_background.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/activity_add_card.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/activity_main.xml" value="0.152" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_add_bill.xml" value="0.176" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_choice_member.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_add_bill.xml" value="0.136" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_add_card.xml" value="0.12462006079027356" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_choice_account.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_choice_member.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/dialog_choice_user.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/fragment_bag.xml" value="0.25625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/fragment_home.xml" value="0.264" />
@@ -37,6 +44,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/item_bill_content.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/item_bill_group.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/item_bill_member.xml" value="0.536" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/item_card_select.xml" value="0.536" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/MotoTool/app/src/main/res/layout/layout_jptabbar_middle_view.xml" value="0.4" />
       </map>
     </option>

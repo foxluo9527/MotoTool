@@ -212,7 +212,7 @@
                     android:text="0"
                     android:singleLine="true"
                     android:textColor="@color/black"
-                    android:hint="Master card(USD)"
+                    android:hint="Master payWay(USD)"
                     android:gravity="center_vertical|end"
                     android:focusable="false"/>
             </LinearLayout>
@@ -247,7 +247,7 @@
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:src="@drawable/btn_ok"/>
+                android:src="@drawable/ok"/>
         </LinearLayout>
         <LinearLayout
             android:background="#D5DE5D"

@@ -41,18 +41,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_info_member"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_below="@id/ll_top"
         android:layout_marginTop="20dp"
         android:paddingHorizontal="10dp"
-        tools:listitem="@layout/item_bill_member"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        tools:listitem="@layout/item_bill_member" />
 
     <EditText
         android:id="@+id/et_input"
-        android:layout_below="@id/rv_info_member"
         android:layout_width="match_parent"
         android:layout_height="52dp"
+        android:layout_below="@id/rv_info_member"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/bg_input_member"
@@ -64,10 +64,11 @@
         android:textSize="12sp" />
 
     <TextView
-        android:layout_below="@id/et_input"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_ok"
         android:layout_width="142dp"
         android:layout_height="36dp"
+        android:layout_below="@id/et_input"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:adjustViewBounds="true"
@@ -77,4 +78,9 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_ok"
+        android:background="@color/white"/>
 </RelativeLayout>

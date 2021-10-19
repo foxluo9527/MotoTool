@@ -3,6 +3,16 @@
     <style name="Theme.MotoTool" parent="Theme.MaterialComponents.Light.NoActionBar">
 
     </style>
+    <style name="Dialog_Fullscreen" parent="@style/Theme.AppCompat.Dialog">
+        <!--<item name="android:windowFullscreen">false</item>-->
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowFullscreen">true</item>
+
+        <!--<item name="android:windowCloseOnTouchOutside">true</item>-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.8</item>
+
+    </style>
     <style name="windowAnim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/ver_tran_in</item>
         <item name="android:windowExitAnimation">@anim/ver_tran_out</item>

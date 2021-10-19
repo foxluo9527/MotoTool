@@ -2,6 +2,7 @@ package com.motoll.one.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -16,7 +17,7 @@ public abstract class BaseDialog {
     private View view;
     private AlertDialog dialog;
     public Activity activity;
-
+    private Bundle data;
     public abstract int initLayoutId();
 
     /**
@@ -30,19 +31,34 @@ public abstract class BaseDialog {
 
     public abstract void initListener();
 
-    @SuppressLint("RestrictedApi")
+    public BaseDialog(Activity context, Bundle data){
+        activity=context;
+        this.data=data;
+        init();
+    }
+
+    public Bundle getData() {
+        return data;
+    }
+
     public BaseDialog(Activity context) {
         activity=context;
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        view = View.inflate(context, initLayoutId(), null);
+        init();
+    }
+
+    @SuppressLint("RestrictedApi")
+    private void init(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity,R.style.Dialog_Fullscreen);
+        view = View.inflate(activity, initLayoutId(), null);
         builder.setView(view,0,0,0,0);
         builder.setCancelable(false);
         dialog = builder.show();
         Window dialogWindow = dialog.getWindow();
-        WindowManager m = context.getWindowManager();
+        WindowManager m = activity.getWindowManager();
         Display d = m.getDefaultDisplay(); // 获取屏幕宽、高
         WindowManager.LayoutParams p = dialogWindow.getAttributes();
         p.width = (int) (d.getWidth() * initWidthPercent());
+        p.height=WindowManager.LayoutParams.MATCH_PARENT;
         p.gravity = Gravity.CENTER;
         dialogWindow.setAttributes(p);
         dialogWindow.setWindowAnimations(R.style.windowAnim);

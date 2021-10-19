@@ -1,18 +1,15 @@
 package com.motoll.one.ui.activity
 
 import android.widget.FrameLayout
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 import com.jpeng.jptabbar.OnTabSelectListener
 import com.jpeng.jptabbar.anno.NorIcons
 import com.jpeng.jptabbar.anno.SeleIcons
 import com.jpeng.jptabbar.anno.Titles
 import com.motoll.one.R
-import com.motoll.one.ui.adapter.TabPageAdapter
 import com.motoll.one.common.CommonUtils
-import com.motoll.one.common.StatusBarUtil
 import com.motoll.one.ui.BaseActivity
+import com.motoll.one.ui.adapter.TabPageAdapter
 import com.motoll.one.ui.dialog.AddBillDialog
 import com.motoll.one.ui.fragment.BagFragment
 import com.motoll.one.ui.fragment.HomeFragment
@@ -23,7 +20,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     private val tabPageAdapter=TabPageAdapter(supportFragmentManager)
-    private val fragments=ArrayList<Fragment>()
+    private val fragments = ArrayList<Fragment>()
+    private var addBillDialog: AddBillDialog? = null
 
     @Titles
     val mTitles = arrayOf("首页", "统计", "钱包", "我的")
@@ -67,8 +65,11 @@ class MainActivity : BaseActivity() {
         tabPageAdapter.setFragments(fragments)
         view_pager.adapter=tabPageAdapter
         tabbar.setContainer(view_pager)
-        tabbar.middleView.setOnClickListener{
-            AddBillDialog(this).show()
+        tabbar.middleView.setOnClickListener {
+            if (addBillDialog == null)
+                addBillDialog = AddBillDialog(this)
+            else
+                addBillDialog?.show()
         }
         tabbar.setGradientEnable(false)
         tabbar.setPageAnimateEnable(false)
@@ -80,7 +81,6 @@ class MainActivity : BaseActivity() {
             override fun onInterruptSelect(index: Int): Boolean {
                 return false
             }
-
         })
     }
 

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.AddCardActivity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/green">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/left"
+            android:paddingVertical="18dp"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="添加银行卡"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="确定"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_add_bill_type"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <CheckedTextView
+                android:id="@+id/ctv_cash"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_add_cash_selector"
+                android:checked="true"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
+                android:text="现金"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
+            <CheckedTextView
+                android:id="@+id/ctv_helmet"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_add_helmet_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
+                android:text="头盔"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
+            <CheckedTextView
+                android:id="@+id/ctv_gloves"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_add_gloves_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
+                android:text="手套"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
+            <CheckedTextView
+                android:id="@+id/ctv_pants"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_add_pants_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
+                android:text="裤子"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <CheckedTextView
+                android:id="@+id/ctv_other"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_add_other_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
+                android:text="其他"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
+            <CheckedTextView
+                android:id="@+id/ctv_moto"
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_add_motorcyle_selector"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2.5dp"
+                android:text="摩托车"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/color_tv_add_bill_type" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="88dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

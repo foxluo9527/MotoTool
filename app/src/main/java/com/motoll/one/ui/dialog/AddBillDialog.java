@@ -2,12 +2,14 @@ package com.motoll.one.ui.dialog;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 
 import com.motoll.one.R;
 import com.motoll.one.common.CommonUtils;
+import com.motoll.one.data.PayWay;
 import com.motoll.one.ui.BaseDialog;
 import com.xuexiang.xutil.tip.ToastUtils;
 
@@ -19,6 +21,8 @@ public class AddBillDialog extends BaseDialog implements View.OnClickListener {
     public static final int BILL_OUT = 2;
     private int bill_type = BILL_IN;
     private boolean resultDone = false;
+    private String members="";
+    private PayWay payWay;
     View exit;
     EditText input;
     ArrayList<CheckedTextView> typesView;
@@ -68,7 +72,26 @@ public class AddBillDialog extends BaseDialog implements View.OnClickListener {
         view.findViewById(R.id.key_point).setOnClickListener(this);
         view.findViewById(R.id.key_equal).setOnClickListener(this);
         view.findViewById(R.id.key_del).setOnClickListener(this);
-        view.findViewById(R.id.key_user).setOnClickListener(v-> new ChoiceMemberDialog(activity).show());
+        view.findViewById(R.id.key_user).setOnClickListener(v-> {
+            Bundle bundle=new Bundle();
+            bundle.putString("members",members);
+            ChoiceMemberDialog dialog=new ChoiceMemberDialog(activity,bundle);
+            dialog.setListener(members -> {
+                this.members=members;
+            });
+            dialog.show();
+        });
+        view.findViewById(R.id.key_account).setOnClickListener(v-> {
+            ChoiceAccountDialog dialog=new ChoiceAccountDialog(activity);
+            dialog.setListener(payWay -> {
+                this.payWay=payWay;
+                String payName=payWay.getType();
+                if (payWay.getType().equals("银行卡")||payWay.getType().equals("信用卡"))
+                    payName+="-"+payWay.getName();
+                ToastUtils.toast("已选择:"+payName);
+            });
+            dialog.show();
+        });
     }
 
     @Override
