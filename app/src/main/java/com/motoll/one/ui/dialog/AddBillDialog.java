@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.motoll.one.R;
 import com.motoll.one.common.CommonUtils;
+import com.motoll.one.common.SPUtils;
 import com.motoll.one.data.PayWay;
 import com.motoll.one.ui.BaseDialog;
 import com.xuexiang.xutil.tip.ToastUtils;
@@ -23,11 +24,12 @@ public class AddBillDialog extends BaseDialog implements View.OnClickListener {
     private boolean resultDone = false;
     private String members="";
     private PayWay payWay;
+    private String remark="";
     View exit;
     EditText input;
     ArrayList<CheckedTextView> typesView;
     CheckedTextView billIn, billOut;
-
+    ChoiceAccountDialog choiceAccountDialog;
     public AddBillDialog(Activity context) {
         super(context);
     }
@@ -82,14 +84,21 @@ public class AddBillDialog extends BaseDialog implements View.OnClickListener {
             dialog.show();
         });
         view.findViewById(R.id.key_account).setOnClickListener(v-> {
-            ChoiceAccountDialog dialog=new ChoiceAccountDialog(activity);
-            dialog.setListener(payWay -> {
+            choiceAccountDialog=new ChoiceAccountDialog(activity);
+            choiceAccountDialog.setListener(payWay -> {
                 this.payWay=payWay;
                 String payName=payWay.getType();
                 if (payWay.getType().equals("银行卡")||payWay.getType().equals("信用卡"))
                     payName+="-"+payWay.getName();
                 ToastUtils.toast("已选择:"+payName);
             });
+            choiceAccountDialog.show();
+        });
+        view.findViewById(R.id.tv_remark).setOnClickListener(v->{
+            Bundle bundle=new Bundle();
+            bundle.putString("remark",remark);
+            AddRemarkDialog dialog=new AddRemarkDialog(activity,bundle);
+            dialog.setListener(remark -> this.remark=remark);
             dialog.show();
         });
     }
@@ -98,8 +107,14 @@ public class AddBillDialog extends BaseDialog implements View.OnClickListener {
     public void initData() {
         input.setClickable(false);
         input.setKeyListener(null);
+        if (payWay==null)
+            payWay= SPUtils.getDefaultPayWay();
     }
-
+    public void refreshChoiceAccountDialog(){
+        if (choiceAccountDialog!=null){
+            choiceAccountDialog.initData();
+        }
+    }
     @Override
     public void initListener() {
         for (CheckedTextView view : typesView) {

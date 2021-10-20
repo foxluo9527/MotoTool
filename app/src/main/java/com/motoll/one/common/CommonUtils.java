@@ -4,21 +4,29 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 
 import androidx.core.content.FileProvider;
 
-import com.motoll.one.R;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class CommonUtils {
+    public static final String ACTION_ADD_BANK_CARD="action_add_bank_card";
+    public static final String ACTION_ADD_CREDIT_CARD="action_add_credit_card";
+    public static final String ACTION_EDIT_PAY_WAY="action_edit_pay_way";
     private static CommonUtils instance;
-
     public CommonUtils(){
 
     }
@@ -42,7 +50,38 @@ public class CommonUtils {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
-    
+
+    public static ArrayList<String> getBanks(Context context) {
+        ArrayList<String> banks = new ArrayList<>();
+        try {
+            AssetManager assetManager = context.getAssets(); //获得assets资源管理器（assets中的文件无法直接访问，可以使用AssetManager访问）
+            InputStreamReader inputStreamReader = new InputStreamReader(assetManager.open("banks.json"), "UTF-8"); //使用IO流读取json文件内容
+            BufferedReader br = new BufferedReader(inputStreamReader);//使用字符高效流
+            String line;
+            StringBuilder builder = new StringBuilder();
+            while ((line = br.readLine()) != null) {
+                builder.append(line);
+            }
+            br.close();
+            inputStreamReader.close();
+
+            JSONObject testJson = new JSONObject(builder.toString()); // 从builder中读取了json中的数据。
+            // 直接传入JSONObject来构造一个实例
+            JSONArray array = testJson.getJSONArray("banks");
+
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject(i);
+                String value = jsonObject.getString("text");
+                banks.add(value);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return banks;
+    }
+
     // 将File 转化为 content://URI
     public static Uri getFileProvider(Context context, File file) {
         // ‘authority’要与`AndroidManifest.xml`中`provider`配置的`authorities`一致，假设你的应用包名为com.example.app

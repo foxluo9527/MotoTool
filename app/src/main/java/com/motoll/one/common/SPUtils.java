@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
+import com.motoll.one.MyApplication;
 import com.motoll.one.data.PayWay;
 
 import java.lang.reflect.Type;
@@ -37,11 +38,15 @@ public class SPUtils {
                 return false;
             if (way.getId() > maxId)
                 maxId = way.getId();
+            if (payWay.isDefault())
+                way.setDefault(false);
         }
         payWay.setDel(false);
         payWay.setId(maxId + 1);
         list.add(payWay);
-        return com.xuexiang.xutil.data.SPUtils.putString(sp, "all_pay_way", setJson(list));
+        com.xuexiang.xutil.data.SPUtils.putString(sp, "all_pay_way", setJson(list));
+        MyApplication.initCards();
+        return true;
     }
 
     /**
@@ -61,6 +66,8 @@ public class SPUtils {
             }
             if (way.getId() > maxId)
                 maxId = way.getId();
+            if (payWay.isDefault())
+                way.setDefault(false);
         }
         //该支付方式未添加则添加
         if (payWay.getId() == 0L)
@@ -68,7 +75,14 @@ public class SPUtils {
         list.add(payWay);
         return com.xuexiang.xutil.data.SPUtils.putString(sp, "all_pay_way", setJson(list));
     }
-
+    public static PayWay getDefaultPayWay(){
+        ArrayList<PayWay> list = getAllPayWay(true);
+        for (PayWay way : list) {
+            if (way.isDefault())
+                return way;
+        }
+        return null;
+    }
     public static PayWay getCash() {
         long maxId = 0L;
         ArrayList<PayWay> list = getAllPayWay(false);
@@ -157,7 +171,27 @@ public class SPUtils {
         com.xuexiang.xutil.data.SPUtils.putString(sp, "all_pay_way", setJson(list));
         return way;
     }
-
+    public static PayWay getJB() {
+        long maxId = 0L;
+        ArrayList<PayWay> list = getAllPayWay(false);
+        for (PayWay way : list) {
+            if (way.getType().equals("借呗")) {
+                return way;
+            }
+            if (way.getId() > maxId)
+                maxId = way.getId();
+        }
+        //第一次使用添加借呗支付方式
+        PayWay way = new PayWay();
+        way.setId(maxId + 1);
+        way.setDefault(false);
+        way.setMoney(0);
+        way.setType("借呗");
+        way.setDel(false);
+        list.add(way);
+        com.xuexiang.xutil.data.SPUtils.putString(sp, "all_pay_way", setJson(list));
+        return way;
+    }
     public static PayWay getJD() {
         long maxId = 0L;
         ArrayList<PayWay> list = getAllPayWay(false);

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.motoll.one.R;
 import com.motoll.one.ui.BaseDialog;
 import com.motoll.one.ui.adapter.BillMemberAdapter;
+import com.xuexiang.xutil.tip.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,7 +73,12 @@ public class ChoiceMemberDialog extends BaseDialog {
                 new AlertDialog.Builder(activity)
                         .setMessage("确认添加此成员?")
                         .setPositiveButton("确认", (dialog, which) -> {
+                            dialog.dismiss();
                             String content = input.getText().toString();
+                            if (content.contains("|")){
+                                ToastUtils.toast("名称不能包含符号[]|/*");
+                                return;
+                            }
                             members.add(content);
                             adapter.notifyItemInserted(members.size() - 1);
                             input.setText("");
@@ -86,11 +92,15 @@ public class ChoiceMemberDialog extends BaseDialog {
                 new AlertDialog.Builder(activity)
                         .setMessage("确认修改此成员信息")
                         .setPositiveButton("确认", (dialog, which) -> {
+                            dialog.dismiss();
                             String content = input.getText().toString();
+                            if (content.contains("|")){
+                                ToastUtils.toast("名称不能包含符号[]|/*");
+                                return;
+                            }
                             members.set(onEditPosition, content);
                             adapter.notifyItemChanged(onEditPosition);
                             returnMembers();
-                            dialog.dismiss();
                         })
                         .setNegativeButton("取消", (dialog, which) -> dialog.dismiss())
                         .setCancelable(false)

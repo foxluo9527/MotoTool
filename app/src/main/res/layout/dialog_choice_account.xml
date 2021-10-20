@@ -72,6 +72,17 @@
                     android:text="现金"
                     android:textColor="#BEBEBE" />
 
+                <TextView
+                    android:id="@+id/tv_cash_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="默认"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
@@ -99,6 +110,8 @@
                     android:layout_weight="1"
                     android:text="银行卡"
                     android:textColor="#BEBEBE" />
+
+
 
                 <ImageView
                     android:id="@+id/iv_expand_bank_card"
@@ -224,7 +237,16 @@
                     android:layout_weight="1"
                     android:text="微信"
                     android:textColor="#BEBEBE" />
-
+                <TextView
+                    android:id="@+id/tv_wechat_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="默认"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
@@ -252,7 +274,16 @@
                     android:layout_weight="1"
                     android:text="支付宝"
                     android:textColor="#BEBEBE" />
-
+                <TextView
+                    android:id="@+id/tv_alipay_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="默认"
+                    android:visibility="gone"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
@@ -280,13 +311,61 @@
                     android:layout_weight="1"
                     android:text="花呗"
                     android:textColor="#BEBEBE" />
-
+                <TextView
+                    android:id="@+id/tv_hb_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="默认"
+                    android:visibility="gone"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:src="@drawable/right" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_jb"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="31dp"
+                    android:src="@drawable/ic_borrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:text="借呗"
+                    android:textColor="#BEBEBE" />
+                <TextView
+                    android:id="@+id/tv_jb_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="默认"
+                    android:visibility="gone"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/right" />
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ll_jd"
                 android:layout_width="match_parent"
@@ -308,7 +387,16 @@
                     android:layout_weight="1"
                     android:text="京东白条"
                     android:textColor="#BEBEBE" />
-
+                <TextView
+                    android:id="@+id/tv_jd_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="默认"
+                    android:visibility="gone"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="#333333"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"

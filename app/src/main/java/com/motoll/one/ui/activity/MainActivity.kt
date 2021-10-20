@@ -1,5 +1,6 @@
 package com.motoll.one.ui.activity
 
+import android.content.Intent
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.jpeng.jptabbar.OnTabSelectListener
@@ -84,6 +85,12 @@ class MainActivity : BaseActivity() {
         })
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode==101&&resultCode== RESULT_OK){
+            addBillDialog?.refreshChoiceAccountDialog()
+        }
+    }
     override fun initFullScreen(): Boolean {
         return false
     }

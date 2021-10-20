@@ -8,138 +8,259 @@
     tools:context=".ui.activity.AddCardActivity"
     android:orientation="vertical">
     <RelativeLayout
+        android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/green">
+
         <ImageView
-            android:layout_centerVertical="true"
+            android:id="@+id/iv_back"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:src="@drawable/left"
-            android:paddingVertical="18dp"/>
+            android:layout_centerVertical="true"
+            android:paddingVertical="18dp"
+            android:src="@drawable/left" />
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="添加银行卡"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:text="编辑账户"
+            android:textColor="@color/white" />
+
         <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_sure"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="确定"
-            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="22dp"/>
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="确定"
+            android:textColor="@color/black" />
     </RelativeLayout>
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/bg_add_bill_type"
-        android:orientation="vertical">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="8dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/ll_choice_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
 
-            <CheckedTextView
-                android:id="@+id/ctv_cash"
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_add_cash_selector"
-                android:checked="true"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2.5dp"
-                android:text="现金"
-                android:textAlignment="gravity"
-                android:textColor="@drawable/color_tv_add_bill_type" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp">
 
-            <CheckedTextView
-                android:id="@+id/ctv_helmet"
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_add_helmet_selector"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2.5dp"
-                android:text="头盔"
-                android:textAlignment="gravity"
-                android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_cash"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_cash_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="现金"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
 
-            <CheckedTextView
-                android:id="@+id/ctv_gloves"
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_add_gloves_selector"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2.5dp"
-                android:text="手套"
-                android:textAlignment="gravity"
-                android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_bank_card"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_bank_card_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="银行卡"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_credit_Card"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_credit_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="信用卡"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_wechat"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_wechat_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="微信"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
 
-            <CheckedTextView
-                android:id="@+id/ctv_pants"
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_add_pants_selector"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2.5dp"
-                android:text="裤子"
-                android:textAlignment="gravity"
-                android:textColor="@drawable/color_tv_add_bill_type" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp">
+
+                    <CheckedTextView
+                        android:id="@+id/ctv_alipay"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_alipay_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="支付宝"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_hb"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_hb_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="花呗"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_jb"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_jb_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="借呗"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
+                    <CheckedTextView
+                        android:id="@+id/ctv_jd"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_jd_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="2dp"
+                        android:text="京东白条"
+                        android:textAlignment="gravity"
+                        android:textColor="@drawable/color_tv_add_bill_type" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="21dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#A6A6A6"
+                    android:text="卡名:"/>
+                <com.xuexiang.xui.widget.spinner.editspinner.EditSpinner
+                    android:id="@+id/es_card_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:es_height="35dp"
+                    app:es_textColor="@color/black"
+                    app:es_hint="请输入或选择银行卡名称"
+                    app:es_isFilterKey="true"
+                    app:es_maxLength="20"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_input_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="21dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#A6A6A6"
+                    android:text="卡号:"/>
+                <EditText
+                    android:id="@+id/et_input_number"
+                    android:inputType="numberDecimal"
+                    android:maxLength="20"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    style="@style/EditText.Normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_input_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="21dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#A6A6A6"
+                    android:text="余额:"/>
+                <EditText
+                    android:id="@+id/et_input_money"
+                    android:inputType="numberDecimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:maxLength="20"
+                    style="@style/EditText.Normal"/>
+            </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:textColor="#333333"
+                android:text="设为默认"/>
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="142dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/et_input"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/bg_btn_ok"
+                android:gravity="center"
+                android:text="完成"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="8dp">
-
-            <CheckedTextView
-                android:id="@+id/ctv_other"
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_add_other_selector"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2.5dp"
-                android:text="其他"
-                android:textAlignment="gravity"
-                android:textColor="@drawable/color_tv_add_bill_type" />
-
-            <CheckedTextView
-                android:id="@+id/ctv_moto"
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_add_motorcyle_selector"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2.5dp"
-                android:text="摩托车"
-                android:textAlignment="gravity"
-                android:textColor="@drawable/color_tv_add_bill_type" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="88dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
-
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

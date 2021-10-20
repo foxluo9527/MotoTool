@@ -25,6 +25,9 @@ public class Bill {
     //购买成员 eg:张三|李四 |间隔名称不能含有|符号
     @DatabaseField(columnName = "members")
     private String members;
+    //备注
+    @DatabaseField(columnName = "remark")
+    private String remark;
     @DatabaseField(columnName = "price")
     private double price;
     @DatabaseField(columnName = "date")
@@ -36,6 +39,14 @@ public class Bill {
     @DatabaseField(columnName = "time")
     private long time;
     public Bill() {
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public long getAccount_id() {

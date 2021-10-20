@@ -1,14 +1,16 @@
 package com.motoll.one.data;
 
-public class PayWay {
+import java.io.Serializable;
+
+public class PayWay implements Serializable {
     //银行卡/信用卡/...
     private String type;
     private long id;
     //如果删除还能查看
     private boolean isDel;
     //eg:交通银行
-    private String name;
-    private String number;
+    private String name="";
+    private String number="";
     //是否为默认账户
     private boolean isDefault;
     //余额
